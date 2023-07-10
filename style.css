@@ -1,0 +1,531 @@
+/* Created by swarup Mahato */
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Poppins:wght@200;500&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'DynaPuff', cursive;
+  
+}
+
+body {
+   height:100vh;  
+   position:relative; 
+   background:#000;
+}
+
+
+.start,.rule-box,.quiz-box,.congrats-box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    box-shadow:0px 4px 5px 1px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    cursor:pointer;
+}
+
+
+
+
+
+
+/*start box*/
+
+
+.start{
+    z-index:7;
+    color:#fff;
+
+}
+
+.start h4{
+    border:1px solid lightgrey;
+    padding:15px;
+    font-size:1.5rem;
+    font-weight:600;
+
+    
+}
+
+/* End start box*/
+
+
+
+
+
+
+/* rule box*/
+.rule-box{
+    max-width: 380px;
+    width:100%;
+    padding: 10px 0px;
+    border:1px solid lightgrey;
+    opacity:0;
+    pointer-events: none;
+    background:#F29559;
+
+}
+
+.activate{
+    opacity:1;
+    z-index:8;
+    pointer-events:auto;
+    
+}
+
+
+.rule-box header{
+    padding:10px 20px;
+    margin-bottom:10px;
+    
+}
+
+.rule-box header h4{
+    font-size:2rem;
+    font-weight:600;
+}
+
+
+.rule-box .rules{
+    border-top:1px solid lightgrey;
+    padding:15px;
+
+}
+
+
+.rule-box .rules p{
+    margin:10px;
+    font-size:1.2rem;
+    font-weight:500;
+
+}
+
+.rule-box .rules p span{
+    color:blue;
+    font-weight:700;
+}
+
+
+.rule-box .rules p:last-child{
+  margin-bottom:0px;
+    
+}
+
+
+.rule-box .buttons{
+    border-top:1px solid lightgrey;
+    margin-top:10px;
+    padding:20px 15px 15px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    
+}
+
+.rule-box .buttons button{
+    padding:10px 20px;
+    border-radius:5px;
+    outline:none;
+    border:1px solid lightgrey;
+    color:white;
+    font-weight:600;
+    transition: all 0.5s ease;
+}
+
+
+.rule-box .buttons #exit{
+    background:transparent;
+    color:#000;
+}
+
+.rule-box .buttons #exit:hover{
+  background:#283845;
+  color:#fff;
+}
+ 
+.rule-box .buttons #continue{
+    background:#283845;
+}
+ 
+
+/* End rule box*/
+
+
+
+
+
+
+
+/* Quiz box*/
+
+.quiz-box{
+    max-width:380px;
+    width:100%;
+    opacity:0;
+    pointer-event: none;
+    user-select:none;
+    background:#F29559;
+}
+
+
+.quiz-box.active{
+     opacity:1;
+    z-index:8;
+    pointer-event:auto;
+    
+}
+
+.quiz-box header{
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:none;
+    outline:none;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.2);
+    position:relative;
+    overflow:hidden;
+    background:#283845;
+    
+}
+
+.quiz-box header h4{
+    font-size:1.2rem;
+    padding:5px;
+    color:#fff;
+}
+
+
+.quiz-box header div{
+    padding:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
+    background:rgba(117, 170, 230,0.5);
+    border:none;
+    background:#F2D492;
+}
+
+
+.quiz-box header div .time-text{
+    padding:5px;
+    font-weight:700;
+    
+}
+
+.quiz-box header div #time{
+   border:1px solid black;
+   text-align:center ;
+   padding:5px 0px;
+   font-size:1.2rem;
+   font-weight:600;
+   border-radius:5px;
+   background:rgba(0,0,0,0.8);
+   color:#fff;
+   width:1.5rem;
+       
+}
+
+
+.quiz-box header #time-div{
+    position:absolute;
+    bottom :0;
+    left:0;
+    width:0%;
+    height:3px;
+    background:blue;
+    padding:0;
+    background:#F2D492;
+    transition: all 1.0s ease;
+}
+
+.quiz-box article{
+    padding:15px;
+}
+
+.quiz-box article h4{
+    padding:10px;
+    font-size:2rem;
+    font-weight:600;
+    
+}
+
+
+.quiz-box article div{
+    border:1px solid lightgrey;
+    border-radius:5px;
+    height:40px;
+    padding:5px;
+    padding-left:15px;
+    margin:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(117, 170, 230,0.5);
+    background:#F2D492;
+    transition: all 0.4s ease;
+}
+
+.quiz-box article div.correct{
+    color:lime;
+    background:green;
+    border-color:lime;
+    animation:blink 0.2s 5 ease;
+}
+
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+
+
+
+.quiz-box article div.incorrect{
+    color:rgb(245, 39, 39);
+    background:rgb(161, 45, 45);
+    border-color:rgb(194, 33, 33);
+}
+
+.quiz-box article div.disable{
+    pointer-events: none;
+}
+
+
+
+@keyframes shake{
+    0%,100%{transform:translateX(3px);}
+    50%{transform:translateX(-3px);}
+}
+
+
+
+.quiz-box article div:last-child{
+    margin-bottom:0px;
+}
+
+
+
+.quiz-box article div i{
+    border:2px solid black;
+    border-radius:50%;
+}
+
+
+.quiz-box article div .fa-check{
+    color:lime;
+    padding:5px;
+    border-color:lime;
+}
+
+.quiz-box article div i.fa-times{
+    color:rgb(245, 39, 39);
+    padding:5px;
+    border-color:red;
+}
+
+
+.quiz-box footer{
+    margin-top:15px;
+    padding:10px ;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-left:20px;
+    background:#283845;
+    color:#fff;
+}
+
+
+.quiz-box footer p span{
+    font-weight:800;
+}
+
+
+.quiz-box footer button{
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:rgb(82, 55, 37);
+    color:black;
+    font-size:1.1rem;
+    transition: all 0.6s ease;
+    
+}
+
+
+
+
+@keyframes shake{
+ 0%,100%{transform:scale(1); box-shadow:3px 0px 5px 2px rgba(0,0,0,0.6),2px 4px 8px 6px rgba(225,225,225,0.2),3px 0px 1px 2px rgba(0,0,0,0.3);}   
+ 50%{transform: scale(0.9);}   
+
+ }
+ 
+ 
+ @keyframes shaker{
+ 0%,100%{transform:scale(1); box-shadow:3px 0px 5px 2px rgba(0,0,0,0.6),2px 4px 8px 6px rgba(225,225,225,0.2),3px 0px 1px 2px rgba(0,0,0,0.3);}   
+ 50%{transform: scale(0.9);}  
+ }
+ 
+
+    
+/* End Quiz box*/
+
+
+
+
+
+
+
+
+/* Congrats box*/
+
+.congrats-box{
+    max-width:380px;
+    width:100%;
+   /* height:200px;*/
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    opacity:0;
+    color:#fff;
+    pointer-events:none;
+        
+}
+
+
+.congrats-box.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.congrats-box .i-box i{
+    font-size:7rem;
+    color:blue;
+}
+
+.congrats-box article:nth-child(2){
+    font-size:1.5rem;
+    padding:10px;
+}
+
+.congrats-box .score-board p{
+    margin:10px;
+}
+
+
+.congrats-box .score-board p:nth-child(3){
+    
+    margin-top:35px;
+}
+
+.congrats-box .score-board p span{
+    font-weight:700;
+    font-size:2rem;
+    color:lime;
+}
+
+.congrats-box .score-board p span:nth-child(1){
+    color:#000;
+}
+
+.congrats-box .score-board p span:nth-child(3){
+    color:lime;
+}
+
+.congrats-box #buttons{
+    margin-top:10px;
+    display:flex;
+    gap:20px;
+    
+}
+
+
+.congrats-box #buttons button{
+    padding:10px 20px;
+    border:none;
+    outline:none;
+    pointer:cursor;
+    font-size:1.1rem;
+    border-radius:5px;
+    color:blue;
+    border:1px solid blue;   
+    transition:all 0.6s ease; 
+}
+
+.congrats-box #buttons button:hover{
+    
+    background:rgba(255,255,255,0.2);
+    color:#fff;
+}
+
+/* End Congrats box*/
+
+
+
+
+
+#mood-slate{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100px;
+    height:20px;
+    text-align:center;
+    padding:0 5px;
+    font-size:1.5rem;
+    color: lime;
+    opacity:0;
+    
+}
+
+#mood-slate.hightlight{
+    animation: move 2s linear;
+}
+
+
+@keyframes move{
+    
+    0%{top: 0; opacity:0;}
+    40%{top:35px; opacity:0.4;}
+    70%{top:35px; opacity:1;}
+    100%{top:40px; opacity:0;}
+}
+
+
+
+
+
+@media (max-width:480px){
+    
+.rule-box header h4{
+    font-size:1.5rem;
+}
+    
+.rule-box .rules p{
+    font-size:1rem;
+}
+
+.quiz-box article h4{
+    font-size:1.5rem;
+} 
+    
+.quiz-box footer button{
+    font-size:1rem;
+}
+
+.start,.rule-box,.quiz-box,.congrats-box{
+    user-select:none;
+    cursor:none;
+}
+}
